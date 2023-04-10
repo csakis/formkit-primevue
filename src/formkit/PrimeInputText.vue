@@ -1,4 +1,4 @@
-<script setup lang='ts'>
+<script setup lang="ts">
 const props = defineProps({
   context: Object,
 })
@@ -13,7 +13,6 @@ function hasLeftIcon() {
 function hasRightIcon() {
   return context?.iconRight && context?.iconRight.length > 0
 }
-
 function spanClass() {
   let result = ''
   if (hasLeftIcon())
@@ -31,7 +30,7 @@ function handleInput(e: any) {
   context?.node.input(e.target.value)
 }
 
-const styleClass = computed(() => context?.state.valid ? attrs?.class : `${attrs?.class} p-invalid`)
+const styleClass = computed(() => ((context?.state.valid && !context?.state.dirty) ? attrs?.class : `${attrs?.class} p-invalid`))
 </script>
 
 <template>

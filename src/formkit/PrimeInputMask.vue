@@ -10,7 +10,7 @@ function handleInput(e: any) {
   context?.node.input(props.context?._value)
   context?.handlers.blur(props.context?._value)
 }
-const styleClass = computed(() => context?.state.valid ? attrs?.class : `${attrs?.class} p-invalid`)
+const styleClass = computed(() => ((context?.state.valid && !context?.state.dirty) ? attrs?.class : `${attrs?.class} p-invalid`))
 </script>
 
 <template>

@@ -14,7 +14,7 @@ function handleSelect(e: any) {
   context?.node.input(e)
 }
 
-const styleClass = computed(() => context?.state.valid ? attrs?.class : `${attrs?.class} p-invalid`)
+const styleClass = computed(() => ((context?.state.valid && !context?.state.dirty) ? attrs?.class : `${attrs?.class} p-invalid`))
 
 </script>
 
